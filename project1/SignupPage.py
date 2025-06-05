@@ -41,16 +41,20 @@ class SignupPage(BasePage):
         ]
         assert dropdown.locator("option").all_text_contents() == expected
 
-
+        # Выбор мая по тексту
         dropdown.select_option(label="May")
         assert dropdown.input_value() == "5"
+
+        # Альтернатива: проверить текст
+        selected = dropdown.locator("option[selected]").text_content()
+        assert selected == "May"
 
 
 
     def test_days_dropdown(self):
         dropdown = self.page.locator("select[id='days']")
 
-        assert dropdown.is_visible()
+        expect(dropdown).is_visible()
 
         expected_options = ["Day"] + [str(i) for i in range(1, 32)]
         actual_options = dropdown.locator("option").all_text_contents()
