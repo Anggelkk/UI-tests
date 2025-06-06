@@ -54,7 +54,7 @@ class SignupPage(BasePage):
     def test_days_dropdown(self):
         dropdown = self.page.locator("select[id='days']")
 
-        expect(dropdown).is_visible()
+        assert dropdown.is_visible()
 
         expected_options = ["Day"] + [str(i) for i in range(1, 32)]
         actual_options = dropdown.locator("option").all_text_contents()
