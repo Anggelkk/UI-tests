@@ -8,7 +8,6 @@ from playwright.sync_api import sync_playwright
 @pytest.fixture
 def browser():
     """
-
     :return:
     """
     with sync_playwright() as p:
