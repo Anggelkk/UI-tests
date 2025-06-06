@@ -45,10 +45,6 @@ class SignupPage(BasePage):
         dropdown.select_option(label="May")
         assert dropdown.input_value() == "5"
 
-        # Альтернатива: проверить текст
-        selected = dropdown.locator("option[selected]").text_content()
-        assert selected == "May"
-
 
 
     def test_days_dropdown(self):
